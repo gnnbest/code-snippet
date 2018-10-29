@@ -1,0 +1,15 @@
+# 必须使用python3
+
+import compileall
+import os
+compileall.compile_dir("/root/tmp", legacy=True)
+
+for root, dirs, files in os.walk("/root/tmp"):
+
+    for filename in files:
+
+        houzui = filename.rsplit('.',1)
+
+        if(len(houzui) == 2 and houzui[1] == 'py'):
+
+            os.remove(os.path.join(root, filename))
